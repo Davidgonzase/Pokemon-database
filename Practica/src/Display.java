@@ -360,7 +360,6 @@ public class Display{
         int posy=0;
         String parte1="",parte2="";
         boolean permt=false;
-        System.out.println(text);
         for(int i=0;i<text.length();i++){
             char temp=text.charAt(i);
             if(temp==','){
@@ -460,15 +459,17 @@ public class Display{
 
         JLabel tipo1label=createLabel(250,60,"Tipo1:",20);
         resultsPanel.add(tipo1label);
-
-        JLabel tipo1Poke=createLabel(250,100,tipo1,25);
+        JLabel tipo1Poke=tipos.img(tipos.gettipo(tipo1));
+        tipo1Poke.setBounds(250,100,100, 20);
         resultsPanel.add(tipo1Poke);
 
-        JLabel tipo2label=createLabel(460,60,"Tipo2:",20);
-        resultsPanel.add(tipo2label);
-
-        JLabel tipo2Poke=createLabel(460,100,tipo2,25);
-        resultsPanel.add(tipo2Poke);
+        if(tipos.gettipo(tipo2)!=null){
+            JLabel tipo2label=createLabel(460,60,"Tipo2:",20);
+            JLabel tipo2Poke=tipos.img(tipos.gettipo(tipo2));
+            tipo2Poke.setBounds(460,100,100, 20);
+            resultsPanel.add(tipo2label);
+            resultsPanel.add(tipo2Poke);
+        }
 
         JLabel DNItainer=createLabel(250,150,"Id pokemon:",20);
         resultsPanel.add(DNItainer);
@@ -543,7 +544,6 @@ public class Display{
         int posy=0;
         String parte1="",parte2="",parte3="";
         int j=0;
-        System.out.println(text);
         for(int i=0;i<text.length();i++){
             char temp=text.charAt(i);
             if(temp==','){
